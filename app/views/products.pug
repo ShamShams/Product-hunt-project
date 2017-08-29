@@ -1,8 +1,11 @@
 extends layout
 block content
   h2 All products
+  a(href='/add')
+    button(type='button') Add a product
+    
   each product in products
-    div
+    a(href=`products/${product.id}`)
+      h3 #{product.name}
+      p #{product.tagline}
       img(src='images/logo-google.png')
-      #{product.name}
-      #{product.tagline}

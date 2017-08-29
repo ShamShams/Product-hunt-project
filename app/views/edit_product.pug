@@ -1,0 +1,14 @@
+extends layout
+block content
+    h2 Edit your product
+    form(action=`/edit/${product.id}`, method='POST')
+      | Name 
+      input(type='text', name='name', value=product.name)
+      | Tag line 
+      input(type='text', name='tagline', value=product.tagline)
+      | URL 
+      input(type='text', name='url' value=product.url)
+      //- input(type='')
+      button(type='submit') Edit
+      //- button(type='submit') Cancel
+      //-   a(href='/')

@@ -1,0 +1,12 @@
+extends layout
+block content
+  div
+    img(src='images/logo-google.png')
+    h3  #{ product.name }
+    p #{ product.tagline }
+    p #{ product.createdAt }
+    a(href=`${product.url}`)
+      button(type='button') Get it
+    a(href=`/edit/${product.id}`)
+      button(type='button') Edit
+    

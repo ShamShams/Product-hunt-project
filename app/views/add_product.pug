@@ -1,0 +1,14 @@
+extends layout
+block content
+  h2 New product
+  form(action='/add', method='POST')
+    | Name 
+    input(type='text', name='name')
+    | Tag line 
+    input(type='text', name='tagline')
+    | URL 
+    input(type='text', name='url')
+    //- input(type='')
+    button(type='submit') Add
+    //- button(type='submit') Cancel
+    //-   a(href='/')
