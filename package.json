@@ -1,0 +1,24 @@
+{
+  "name": "product-hunt",
+  "version": "1.0.0",
+  "description": "Product Hunt Like",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon app/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shamila",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "morgan": "^1.8.2",
+    "pug": "^2.0.0-rc.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.11.0"
+  }
+}
