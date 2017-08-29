@@ -4,3 +4,5 @@ const router = express.Router();
 router.get('/', (request, response) => {
   response.render('list');
 });
+
+module.exports = router;
