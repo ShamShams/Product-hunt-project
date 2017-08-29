@@ -1,0 +1,8 @@
+extends layout
+block content
+  h2 All products
+  each product in products
+    div
+      img(src='images/logo-google.png')
+      #{product.name}
+      #{product.tagline}
