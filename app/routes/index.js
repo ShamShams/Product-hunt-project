@@ -53,4 +53,14 @@ router.get('/edit/:id', (request, response) => {
   });
 });
 
+// delete a product
+router.get('/remove/:id', (request, response ) => {
+  Product.findByIdAndRemove(request.params.id, (error) => {
+    if (error) {
+      response.send(error);
+    }
+    response.redirect('/');
+  });
+});
+
 module.exports = router;
