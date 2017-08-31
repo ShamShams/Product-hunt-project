@@ -1,14 +1,15 @@
 extends layout
 block content
   h2 New product
-  form(action='/add', method='POST')
+  form(action='/add', method='POST', enctype='multipart/formdata')
     | Name 
     input(type='text', name='name')
     | Tag line 
     input(type='text', name='tagline')
     | URL 
     input(type='text', name='url')
-    //- input(type='')
+    | Image
+    input(type='file', name='photo')
     button(type='submit') Add
-    //- button(type='submit') Cancel
-    //-   a(href='/')
+    a(href='/')
+      button(type='button') Cancel

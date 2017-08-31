@@ -1,11 +1,20 @@
 extends layout
 block content
-  h2 All products
-  a(href='/add')
-    button(type='button') Add a product
-    
-  each product in products
-    a(href=`products/${product.id}`)
-      h3 #{product.name}
-      p #{product.tagline}
-      img(src='images/logo-google.png')
+  div.container
+    div#home.row
+      div.col-xs-12
+      h1 All products
+      each product in products
+        div.product-card
+          a(href=`products/${product.id}`)
+            div.product-card-image
+              img(src='images/logo-ph.png', width='80', height='80')
+            div.product-card-body
+              h3 #{product.name}
+              span #{product.tagline}
+          ul.product-card-controls.list-inline
+            li
+              a.btn.btn-default
+                i.fa.fa-pencil
+
+//- img(src=product.photo
