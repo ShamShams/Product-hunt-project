@@ -1,14 +1,24 @@
 extends layout
 block content
-    h2 Edit your product
-    form(action=`/edit/${product.id}`, method='POST')
-      | Name 
-      input(type='text', name='name', value=product.name)
-      | Tag line 
-      input(type='text', name='tagline', value=product.tagline)
-      | URL 
-      input(type='text', name='url' value=product.url)
-      //- input(type='')
-      button(type='submit') Edit
-      //- button(type='submit') Cancel
-      //-   a(href='/')
+  div.container
+    div.row
+      div.col-xs-12
+        h1 Edit your product
+        form(action=`/edit/${product.id}`, method='POST', enctype='multipart/form-data')
+          div.form-group
+            label.control-label NAME
+            input.form-control(type='text', name='name', value=product.name)
+          div.form-group
+            label.control-label TAG LINE
+            input.form-control(type='text', name='tagline', value=product.tagline)
+          div.form-group
+            label.control-label URL
+            input.form-control(type='text', name='url', value=product.url)
+          div.form-group
+            label.control-label PICTURE
+            input(type='file', name='photo')
+          ul.list-inline
+            li
+              input.btn.btn-danger(type='submit', value='EDIT')
+            li
+              a.btn.btn-warning(href='/products') CANCEL

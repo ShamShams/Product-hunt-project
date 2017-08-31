@@ -1,17 +1,28 @@
 extends layout
 block content
-  div
-    img(src='images/logo-google.png')
-    h3  #{ product.name }
-    p #{ product.tagline }
-    p #{ product.createdAt }
-    a(href=`${product.url}`)
-      button(type='button') Get it
-    a(href=`/edit/${product.id}`)
-      button(type='button') Edit
-    a(href=`/remove/${product.id}`) 
-      button(type='button') Delete
-
+  div.container
+    div.row
+      div.col-xs-12
+        div.product-header
+          div.product-image
+            img(src='images/logo-ph.png', width='120', height='120')
+          div.product-body
+            h1 #{ product.name }
+            span #{ product.tagline }
+          div.product-created
+            span #{ product.createdAt }
+        div.product-controls-wrapper
+          ul.product-controls.list-inline.pull-left
+            li
+              a.btn.btn-danger(href=`${product.url}`) GET IT
+            li
+              a.btn.btn-default(href=`/edit/${product.id}`)
+                i.fa.fa-pencil
+                span EDIT
+            li
+              a.btn.btn-default(href=`/remove/${product.id}`)
+                i.fa.fa-trash
+                span DELETE
       //- div.product-header
       //-   div.product-image
       //-     img(src='images/logo-google.png', width='120', height='120')

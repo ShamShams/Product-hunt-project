@@ -14,7 +14,10 @@ block content
               span #{product.tagline}
           ul.product-card-controls.list-inline
             li
-              a.btn.btn-default
+              a.btn.btn-default(href=`/edit/${product.id}`)
                 i.fa.fa-pencil
+            li
+              a.btn.btn-default(href=`/remove/${product.id}`)
+                i.fa.fa-trash
 
 //- img(src=product.photo

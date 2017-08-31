@@ -43,7 +43,7 @@ router.post('/add', upload.single('photo'), (request, response) => {
     if (error) {
       response.send(error);
     }
-    response.redirect('/');
+    response.redirect('/products');
   });
 });
 
@@ -53,7 +53,7 @@ router.post('/edit/:id', (request, response) => {
     if (error) {
       response.send(error);
     }
-    response.redirect('/');
+    response.redirect('/products');
   });
 });
 router.get('/edit/:id', (request, response) => {
