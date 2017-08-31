@@ -1,23 +1,24 @@
 const express = require('express');
 const path = require('path');
-const multer = require('multer');
+// const multer = require('multer');
 
 const router = express.Router();
 const Product = require('../models/product');
 
-const storage = multer.diskStorage({
-  destination: (request, file, callback) => {
-    callback(null, path.resolve(__dirname, 'public', 'upload')),
-  },
-  filename: (request, file, callback) => {
-    callback(null, `${request.body.name}.${file.originalname.split('.')[1]}`); // Va séparer le nom de l'extension et on ne garde que l'extension.
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (request, file, callback) => {
+//     callback(null, path.resolve(__dirname, 'public', 'upload')),
+//   },
+//   filename: (request, file, callback) => {
+//     callback(null, `${request.body.name}.${file.originalname.split('.')[1]}`); // Va séparer le nom de l'extension et on ne garde que l'extension.
+//   },
+// });
+//
+// const upload = multer({
+//   storage
+// });
 
-const upload = multer({
-  storage,
-});
-
+// Afficher la liste des produits
 router.get('/products', (request, response) => {
   Product.find((error, products) => {
     if (error) response.send(error);
@@ -25,6 +26,7 @@ router.get('/products', (request, response) => {
   });
 });
 
+// Afficher la page d'un produit
 router.get('/products/:id', (request, response) => {
   Product.findById(request.params.id, (error, product) => {
     if (error) response.send(error);
@@ -32,45 +34,40 @@ router.get('/products/:id', (request, response) => {
   });
 });
 
+// Ajouter un produit -> Afficher le formulaire d'ajout
 router.get('/add', (request, response) => {
   response.render('add_product');
 });
-
-router.post('/add', upload.single('photo'), (request, response) => {
+// -> Enregistrer le nouveau produit et rediriger vers la page du produit
+router.post('/add', (request, response) => {
+  // upload.single('photo') -> après '/add',
   const product = new Product(request.body);
   // product.photo
   product.save((error) => {
-    if (error) {
-      response.send(error);
-    }
-    response.redirect('/products');
+    if (error) response.send(error);
+    response.redirect('/');
   });
 });
 
-// edit a product
+// Editer un produit -> Enregistrer les modifications et rediriger vers la liste des produits.
 router.post('/edit/:id', (request, response) => {
   Product.findByIdAndUpdate(request.params.id, request.body, (error) => {
-    if (error) {
-      response.send(error);
-    }
-    response.redirect('/products');
+    if (error) response.send(error);
+    response.redirect('/');
   });
 });
+// -> Afficher la vue edit_product (formulaire d'édition du produit)
 router.get('/edit/:id', (request, response) => {
   Product.findById(request.params.id, (error, product) => {
-    if (error) {
-      response.send(error);
-    }
+    if (error) response.send(error);
     response.render('edit_product', { product });
   });
 });
 
-// delete a product
-router.get('/remove/:id', (request, response ) => {
+// Supprimer un produit et rediriger vers la liste des produits.
+router.get('/remove/:id', (request, response) => {
   Product.findByIdAndRemove(request.params.id, (error) => {
-    if (error) {
-      response.send(error);
-    }
+    if (error) response.send(error);
     response.redirect('/');
   });
 });
