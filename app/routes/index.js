@@ -8,6 +8,6 @@ router.get('/', (request, response) => {
   response.redirect('/products');
 });
 
-router.use('products', products);
+router.use(products);
 
 module.exports = router;

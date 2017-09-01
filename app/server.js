@@ -5,7 +5,9 @@ const router = require('./routes/index');
 const path = require('path');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/products');
+mongoose.connect('mongodb://localhost/products', () => {
+  // console.log('Connecté à mongo');
+});
 
 const app = express();
 
@@ -13,8 +15,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 app.use(router);
 

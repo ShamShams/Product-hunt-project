@@ -252,11 +252,12 @@ ul.product-card-controls {
 
 .product-card-controls li {
   padding: 0;
-  margin-right: 10px;
+  margin-right: 3px;
 }
 
 .product-card-controls li > a {
   padding: 2px 10px;
+  padding-right: 6px;
   font-size: 12px;
   line-height: 20px;
 }

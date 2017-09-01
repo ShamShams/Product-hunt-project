@@ -10,9 +10,12 @@ block content
             div.product-card-image
               img(src='images/logo-ph.png', width='80', height='80')
             div.product-card-body
-              h3 #{product.name}
-              span #{product.tagline}
+              h3 #{ product.name }
+              span #{ product.tagline }
           ul.product-card-controls.list-inline
+            li
+              a.btn.btn-default(href=`${product.url}`)
+                i.fa.fa-share-square-o
             li
               a.btn.btn-default(href=`/edit/${product.id}`)
                 i.fa.fa-pencil
