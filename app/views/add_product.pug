@@ -4,7 +4,7 @@ block content
     div.row
       div.col-xs-12
         h1 New product
-        form(action = '/add', method = 'POST')
+        form(action = '/add', method = 'POST', enctype = 'multipart/form-data')
           div.form-group
             label.control-label NAME
             input.form-control(type = 'text', name = 'name', required)

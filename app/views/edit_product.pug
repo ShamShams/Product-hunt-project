@@ -4,7 +4,7 @@ block content
     div.row
       div.col-xs-12
         h1 Edit your product
-        form(action = `/edit/${product.id}`, method = 'POST')
+        form(action = `/edit/${product.id}`, method = 'POST', enctype = 'multipart/form-data')
           div.form-group
             label.control-label NAME
             input.form-control(type ='text', name = 'name', value = product.name)

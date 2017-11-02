@@ -8,7 +8,7 @@ block content
         div.product-card
           a(href=`products/${product.id}`)
             div.product-card-image
-              img(src='images/logo-ph.png', width='80', height='80')
+              img(src=`${product.photo}`, width='80', height='80')
             div.product-card-body
               h3 #{ product.name }
               span #{ product.tagline }

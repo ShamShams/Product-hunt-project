@@ -5,7 +5,7 @@ block content
       div.col-xs-12
         div.product-header
           div.product-image
-            img(src='images/logo-ph.png', width='120', height='120')
+            img(src=`${product.photo}`, width='120', height='120')
           div.product-body
             h1 #{ product.name }
             span #{ product.tagline }
